@@ -155,9 +155,10 @@ if AWS_ACCESS_KEY_ID:
     AWS_AUTO_CREATE_BUCKET = False
     AWS_QUERYSTRING_AUTH = True
     AWS_S3_CUSTOM_DOMAIN = None
-
-    COLLECTFAST_ENABLED = True
     AWS_DEFAULT_ACL = 'public-read'
+
+    COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+    COLLECTFAST_ENABLED = True
 
     # Static Assets
     # ------------------------------------------------------------------------------
@@ -166,8 +167,6 @@ if AWS_ACCESS_KEY_ID:
     STATIC_ROOT = f'/{STATIC_S3_PATH}/'
     STATIC_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{STATIC_S3_PATH}/'
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-
-    COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 
     # Upload Media Folder
     DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
@@ -181,4 +180,4 @@ if AWS_ACCESS_KEY_ID:
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
